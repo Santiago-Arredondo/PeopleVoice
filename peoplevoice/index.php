@@ -3,7 +3,7 @@ include "./template/cabecera.php"
 ?>
 
 <title>People Voice</title>
-<link rel="stylesheet" href="css//bootstrap.min (4).css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -19,7 +19,7 @@ include "./template/cabecera.php"
   <div class="container">
     <div class="d-grid gap-2 d-md-block">
       <a class="btn btn-outline-primary" data-bs-toggle="offcanvas" href="#offcanvas1">Sobre Nosotros</a>
-      <div class="offcanvas offcanvas-start" tabindex="1" id="offcanvas1">
+      <div class="offcanvas offcanvas-end" tabindex="1" id="offcanvas1">
         <div class="offcanvas-header">
 
           <h4 class="display-4" class="offcanvas-title">Información del sitio web</h4>

@@ -45,26 +45,26 @@ if (isset($_POST['votar'])) {
             $sql = "SELECT a.titulo as titulo, a.fecha as fecha, b.id as id, b.nombre as nombre, b.valor as valor FROM encuestas a INNER JOIN opciones b ON a.id = b.id_encuesta WHERE a.id = " . $id;
             $req = mysqli_query($conexion, $sql);
 
-            // while ($result = mysqli_fetch_object($req)) {
+            while ($result = mysqli_fetch_object($req)) {
 
-            //     if ($aux == 0) {
-            //         echo '<h1>' . $result->titulo . '</h1>';
+                if ($aux == 0) {
+                    echo '<h1>' . $result->titulo . '</h1>';
 
-            //         echo '<ul class="votacion">';
-            //         $aux = 1;
-            //     }
+                    echo '<ul class="votacion">';
+                    $aux = 1;
+                }
 
-            //     echo '<li><label><input name="valor" type="radio" value="' . $result->id . '"><span>' . $result->nombre . '</span></label></li>';
-            // }
-            // echo '</ul>';
+                echo '<li><label><input name="valor" type="radio" value="' . $result->id . '"><span>' . $result->nombre . '</span></label></li>';
+            }
+            echo '</ul>';
 
-            // if (!isset($_POST['valor'])) {
-            //     echo "<div class='error'>Selecciona una opcion.</div>";
-            // }
+            if (!isset($_POST['valor'])) {
+                echo "<div class='error'>Selecciona una opcion.</div>";
+            }
 
-            // echo '<input name="votar" type="submit" value="Votar" class="votar">';
-            echo '<a href="resultado.php?id=' . $id . '" class="resultado">Ver Resultados</a>';
-            echo '<a href="index.php" class="volver">← Volver</a>';
+            echo '<input name="votar" type="submit" value="Votar" class="votar">';
+            // echo '<a href="resultado2.php?id=' . $id . '" class="resultado">Ver Resultados</a>';
+            echo '<a href="index2.php" class="volver">← Volver</a>';
         
             ?>
 

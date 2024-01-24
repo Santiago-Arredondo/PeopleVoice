@@ -4,6 +4,7 @@ include "../template/cabecera.php"
 
 <title>Registro de Trabajadores</title>
 <link rel="stylesheet" href="../css/styleRegistro.css">
+<link rel="icon" href="../img/logoproyecto.jpg">
 </head>
 
 <body background="../img/fondo.jpg" , background-size="cover" , background-repeat="no-repeat" , background-position="center" , background-attachment="fixed">
@@ -86,12 +87,12 @@ include "../template/cabecera.php"
         $id = $_POST['id'];
         $nombre = $_POST['nom'];
         $comp = $_POST['comp'];
-        $cargo = $_POST['cargo'];
         $prog = $_POST['prog'];
+        $cargo = $_POST['cargo'];
 
         require("../conexion/conexion.php");
 
-        $sql = "INSERT INTO `trabajador` (`cc`, `nombre`, `id_compañia`, `id_programa`, `rol_trabajador`) VALUES  ('$id','$nombre','$comp','$cargo','$prog')";
+        $sql = "INSERT INTO trabajador (cc, nombre, id_compañia, id_programa, rol_trabajador) VALUES ('$id','$nombre','$comp','$prog','$cargo')";
 
         $consulta = mysqli_query($conexion, $sql);
         if ($consulta) {

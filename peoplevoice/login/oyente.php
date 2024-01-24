@@ -639,7 +639,7 @@ if (!isset($_SESSION['oyente'])) {
 
       </div>
 
-      <div class="dropdown">
+      <div class="dropdown ms-2">
         <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
           Encuestas
         </button>

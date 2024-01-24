@@ -57,7 +57,7 @@ include "../conexion/conexion.php";
                         <?php
                         while ($row = mysqli_fetch_array($consulta)) {
                         ?>
-                            <form action="actualizar_trabajador.php" method="POST">
+                            <form action="" method="POST">
                                 <tr>
                                     <td><?php echo $row['cc'] ?></td>
                                     <td><?php echo $row['nombre'] ?></td>

@@ -2,39 +2,64 @@
 include "../template/cabecera.php"
 ?>
 
-<title>Emisión</title>
+<title>Registro de Trabajadores</title>
 <link rel="stylesheet" href="../css/styleRegistro.css">
-<link rel="icon" href="../img/logoproyecto.jpg">
 </head>
 
 <body background="../img/fondo.jpg" , background-size="cover" , background-repeat="no-repeat" , background-position="center" , background-attachment="fixed">
 
-    <nav class="navbar navbar-dark">
+    <nav class="navbar navbar-dark"><br><br>
         <div class="container-fluid">
             <a class="navbar-brand" href="../login/emisora.php">
                 <img src="../img/logoproyecto.jpg" alt="logo proyecto" width="70" height="60" class="d-inline-flex align-text-center"><br>
-
             </a>
         </div>
     </nav>
-    <form action="./form_emision.php" method="POST" autocomplete="off">
+    <form action="emision.php" method="post" autocomplete="off">
         <section class="form-register">
             <center>
-                <h4>Registro de Emisión de Programa</h4>
+                <h4>Emision</h4>
                 <hr><br>
             </center>
-            <label for="fecha">Fecha de Emisión:
+            <input class="controls" type="text" name="id" placeholder="Identificación" required>
+            <input class="controls" type="text" name="nom" placeholder="Nombre de trabajador" required>
 
-                <input class="controls" type="date" name="fecha" id="fecha" required>
-            </label>
+            <br><br><label for="comp">Compañia Productora: </label><br>
+            <select name="comp" id="comp" required>
+                <option value="" selected>Seleccione...</option>
+                <?php
+                include("../conexion/conexion.php");
+                $query = "SELECT * FROM compañia";
+                $consulta = mysqli_query($conexion, $query);
+                if ($consulta) {
+                    while ($row = mysqli_fetch_row($consulta)) {
+                        echo "<option value='" . $row[0] . "'>" . $row[1] . "</option>";
+                    }
+                } else {
+                    echo "Error en la consulta" . mysqli_error($conexion);
+                }
+                ?>
+            </select>
 
-            <label for="hora">
-                Hora Inicio de Programación
-                <input class="controls" type="time" name="hora" id="hora" required>
-            </label>
+            <br><label for="cargo">Cargo: </label><br>
+            <select name="cargo" id="cargo" required>
+                <option value="" selected>Seleccione...</option>
+                <?php
+                include("../conexion/conexion.php");
+                $query = "SELECT id_rol,rol FROM rol_trabajador";
+                $consulta = mysqli_query($conexion, $query);
+                if ($consulta) {
+                    while ($row = mysqli_fetch_row($consulta)) {
+                        echo "<option value='" . $row[0] . "'>" . $row[1] . "</option>";
+                    }
+                } else {
+                    echo "Error en la consulta" . mysqli_error($conexion);
+                }
+                ?>
+            </select>
 
-            <br><label for="programa">Programa: </label><br>
-            <select name="programa" id="programa" required>
+            <br><label for="prog">Programa: </label><br>
+            <select name="prog" id="prog" required>
                 <option value="" selected>Seleccione...</option>
                 <?php
                 include("../conexion/conexion.php");
@@ -50,73 +75,43 @@ include "../template/cabecera.php"
                 ?>
             </select>
 
-            <br><label for="durac">
-                Duración (Horas)
-                <input class="controls" type="txt" name="duracion" required>
-            </label>
-
-            <br><label for="repeat">¿Programa Repetido?: </label><br>
-            <select name="repeat" id="repeat" required>
-                <option value="" selected>Seleccione...</option>
-                <option value="Si" selected>Si</option>
-                <option value="No" selected>No</option><br>
-            </select><br>
-
-            <br><label for="emisora">Emisora: </label><br>
-            <select name="emisora" id="emisora" required>
-                <option value="" selected>Seleccione...</option>
-                <?php
-                include("../conexion/conexion.php");
-                $query = "SELECT * FROM emisora";
-                $consulta = mysqli_query($conexion, $query);
-                if ($consulta) {
-                    while ($row = mysqli_fetch_row($consulta)) {
-                        echo "<option value='" . $row[0] . "'>" . $row[0] . "</option>";
-                    }
-                } else {
-                    echo "Error en la consulta" . mysqli_error($conexion);
-                }
-                ?>
-            </select>
-
             <hr>
-
             <input class="botonsreg" type="submit" value="REGISTRAR" name="registrar" required>
 
         </section>
     </form>
     <?php
-
     if (isset($_POST['registrar'])) {
 
-        $fecha = $_POST['fecha'];
-        $hora = $_POST['hora'];
-        $programa = $_POST['programa'];
-        $duracion = $_POST['duracion'];
-        $repeat = $_POST['repeat'];
-        $cod_radio = $_POST['emisora'];
+        $id = $_POST['id'];
+        $nombre = $_POST['nom'];
+        $comp = $_POST['comp'];
+        $cargo = $_POST['cargo'];
+        $prog = $_POST['prog'];
 
         require("../conexion/conexion.php");
 
-        $sql = "INSERT INTO emision(fecha,hora_inicio,duracion,repeticion,cod_radio) VALUES('$fecha','$hora','$duracion','$repeat','$cod_radio')";
-
+        $sql = "INSERT INTO `trabajador` (`cc`, `nombre`, `id_compañia`, `id_programa`, `rol_trabajador`) VALUES  ('$id','$nombre','$comp','$cargo','$prog')";
 
         $consulta = mysqli_query($conexion, $sql);
         if ($consulta) {
             echo "
             <script>
-            alert('Emisión Registrada correctamente');
+            alert('Datos registrados correctamente');
             window.location='../login/emisora.php';  
             </script>
             ";
         } else {
-            echo "Error en la consulta " . mysqli_error($conexion);
+            // echo "Error en la consulta " . mysqli_error($conexion);
+            echo "
+            <script>
+            alert('Error en la insercion, vuelve a intentar');
+          
+            </script>
+            ";
         }
     }
     ?>
-
-
-
 
     <?php
     include "../template/footer.php"
