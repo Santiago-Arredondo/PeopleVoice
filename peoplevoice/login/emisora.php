@@ -35,38 +35,71 @@ if (!isset($_SESSION['emisora'])) {
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark bg-">
         <div class="container-fluid">
-            <div class="dropdown">
-                <button class="btn btn-lg btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
-                    MI Perfil
+
+            <div class="btn-group">
+                <button class="btn btn-primary btn-lg dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown">
+                    Mi Perfil
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
                     <li><a class="dropdown-item" href="../actualizar_emisora.php">Actualizar Datos</a></li>
                 </ul>
             </div>
 
-            <div class="dropdown">
+            <div class="btn-group ms-2">
                 <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
-                    ¿Qué quieres hacer?
+                    Encuestas
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="../prueba/agregar.php">Añadir Encuesta</a></li>
-                    <li><a class="dropdown-item" href="../programacion/trabajadores.php">Registrar Trabajador</a></li>
-                    <li><a class="dropdown-item" href="../programacion/actualizar_trabajador.php">Actualizar Trabajadores</a></li>
+                </ul>
+            </div>
+
+            <div class="btn-group ms-2">
+                <div class="dropdown">
+                    <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+                        Trabajadores
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="../programacion/trabajadores.php">Registrar Trabajador</a></li>
+                        <li><a class="dropdown-item" href="../programacion/actualizar_trabajador.php">Actualizar Trabajadores</a></li>
+                        <li><a class="dropdown-item" href="../programacion/info_trabajador.php">Consultar Información De Trabajadores</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dropdown ms-2">
+                <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+                    Compañia Productora
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="../programacion/productora.php">Registrar Compañia Productora</a></li>
                     <li><a class="dropdown-item" href="../programacion/info_productora.php">Información de Productoras</a></li>
-                    <li><a class="dropdown-item" href="../programacion/form_emision.php">Registrar Emisión de Programa</a></li>
-                    <li><a class="dropdown-item" href="../programacion/actualizar_emision.php">Actualizar Emisión de Programa</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown  ms-2">
+                <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+                    Programas
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
                     <li><a class="dropdown-item" href="../programacion/programa.php">Crear Nuevo Programa</a></li>
-                    <li><a class="dropdown-item" href="../programacion/index.php">Consultar Datos De Emisión</a></li>
-                    <li><a class="dropdown-item" href="../programacion/info_trabajador.php">Consultar Información De Trabajadores</a></li>
-                
 
                 </ul>
             </div>
 
+            <div class="dropdown ms-2">
+                <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+                    Emisión
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="../programacion/form_emision.php">Registrar Emisión de Programa</a></li>
+                    <li><a class="dropdown-item" href="../programacion/actualizar_emision.php">Actualizar Emisión de Programa</a></li>
+                    <li><a class="dropdown-item" href="../programacion/index.php">Consultar Datos De Emisión</a></li>
+                </ul>
+            </div>
 
             <div class="collapse navbar-collapse" id="navbarColor03">
-
 
             </div>
             <form class="d-flex">

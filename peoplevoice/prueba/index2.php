@@ -1,28 +1,31 @@
 <?php
-require('./conexion/conexion.php');
+require('../conexion/conexion.php');
 $sql = "SELECT * FROM encuestas ORDER BY id DESC";
 $req = mysqli_query($conexion, $sql);
 ?>
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en-US">
 
 <head>
     <meta charset="UTF-8">
     <title>Sistema de encuestas</title>
-    <link rel="icon" href="./img/logoproyecto.jpg">
-    <link rel="stylesheet" href="./css/encuesta.css">
+    <link rel="stylesheet" href="../css/encuesta.css">
+    <link rel="icon" href="../img/logoproyecto.jpg">
+</head>
 
 <body>
     <div class="wrap">
-        <h1>Encuestas Disponibles</h1>
+        <h1>Encuestas</h1>
         <ul class="votacion index">
             <?php
             while ($result = mysqli_fetch_object($req)) {
-                echo '<li><a href="./prueba/emcuesta2.php?id=' . $result->id . '">' . $result->titulo . '</a></li>';
+                echo '<li><a href="encuesta.php?id=' . $result->id . '">' . $result->titulo . '</a></li>';
             }
             ?>
-            <hr><br><a href="./login/oyente.php"><- Página Principal</a>
         </ul>
+  
+        <a href="../login/oyente.php">
+            <- Atrás</a>
     </div>
 </body>
 

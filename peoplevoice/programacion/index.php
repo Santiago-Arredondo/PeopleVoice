@@ -49,7 +49,7 @@ $consulta = mysqli_query($conexion, $query);
                     </thead>
                     <tbody>
                         <?php
-                        while ($row = mysqli_fetch_array($consulta)) {
+                        while ($row = mysqli_fetch_assoc($consulta)) {
                         ?>
                             <tr>
                                 <td><?php echo $row['id'] ?></td>

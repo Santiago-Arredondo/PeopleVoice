@@ -4,7 +4,7 @@ include "./conexion/conexion.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 
 <title>Actualizar Emisora</title>
@@ -41,7 +41,7 @@ include "./conexion/conexion.php";
     ?>
     <div class="row justify-content-end">
 
-        <nav class="navbar  btn-info bg-light bg-dark navbar-dark">
+        <nav class="navbar btn-info bg-light bg-dark navbar-dark">
             <img class='justify-content-star' src="./img/logoproyecto.jpg" style="margin-left:10px;width: 70px;height:60px ;">
 
             <form>
