@@ -152,7 +152,8 @@ include "./conexion/conexion.php";
                         Swal.fire({
                             icon: 'success',
                             title: 'Datos Actualizados Exitosamente'   
-                          })          
+                          }).then(function(){
+                            window.location.href='actualizar_oyente.php'});          
                         </script>
                         ";
         }
